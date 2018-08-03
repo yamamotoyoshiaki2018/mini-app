@@ -6,5 +6,4 @@ Rails.application.routes.draw do
   post  'tweets'      =>  'tweets#create'
   get   'users/:id'   =>  'users#show'
 
-
 end
