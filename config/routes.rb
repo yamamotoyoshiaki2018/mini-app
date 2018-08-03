@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   get 'tweets' => 'tweets#index'
   get   'tweets/new'  =>  'tweets#new'
   post  'tweets'      =>  'tweets#create'
+  delete  'tweets/:id'  => 'tweets#destroy'
   get   'users/:id'   =>  'users#show'
+  get   'tweets/:id/edit'  => 'tweets#edit'
+  patch   'tweets/:id'  => 'tweets#update'
+  get 'tweets/:id' => 'tweets#show'
+
 
 end

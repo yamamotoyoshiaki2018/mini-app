@@ -19,8 +19,7 @@
     <div class="nav-wrapper">
       <a href="/" class="brand-logo center" >MEMO APP</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-
-      <% if user_signed_in? %>
+       <% if user_signed_in? %>
         <ul class="user__info">
           <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
@@ -28,14 +27,11 @@
        </ul>
       <% else %>
          <li><%= link_to "ログイン", new_user_session_path, :class => 'post' %></li>
-
          <li><%= link_to "新規登録", new_user_registration_path, :class => 'post' %></li>
       <% end %>
-
       </ul>
     </div>
   </nav>
-<h1></h1>
 
 <%= yield %>
 
