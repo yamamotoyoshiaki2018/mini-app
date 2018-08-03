@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MINI APP</title>
+  <style type="text/css" href="application.css"></style>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+</head>
+<body>
+   <nav class="black">
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo center" >MEMO APP</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+        <% if user_signed_in? %>
+         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+         <li><a href="/tweets/new"class="waves-effect waves-light btn red">●メモ</a></li>
+       <% else %>
+        <li><%= link_to "ログイン", new_user_session_path, :class => 'post' %></li>
+
+        <li><%= link_to "新規登録", new_user_registration_path, :class => 'post' %></li>
+        <% end %>
+
+      </ul>
+    </div>
+  </nav>
+<h1></h1>
+
+<%= yield %>
+
+<script type="text/javascript" src="./app.js"></script>
+
+<footer class="page-footer black">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">MEMO APPLICATION </h5>
+        <p class="white-text text-lighten-8"></p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2018 Copyright 俺
+    <a class="white-text text-lighten-4 right" href="#!"></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
