@@ -3,7 +3,8 @@
    <h5><%= current_user.nickname %>のマイページ</h5>
     </div>
      <% @tweets.each do |tweet| %>
-        <div class="col s12 m6 center">
+     <%= render partial: "tweets/tweet", locals: { tweet: tweet } %>
+        <!-- <div class="col s12 m6 center">
           <div class="card white darken-1 ">
             <div class="card-content black-text ">
 　　　　　　　
@@ -15,14 +16,32 @@
 
                 </div>
               </div>
-            <div class="card-action">
-              <a class="waves-effect waves-light btn black">詳細</a>
-              <a class="waves-effect waves-light btn black">編集</a>
-              <a class="waves-effect waves-light btn black">削除</a>
+
+                 <div class="card-action">
+              <ul>
+                <li class="waves-effect waves-light btn black">
+                <%= link_to '詳細', "/tweets/#{tweet.id}", method: :get %>
+                </li>
+
+                <% if user_signed_in? && current_user.id == tweet.user_id %>
+                 <li class="waves-effect waves-light btn black">
+                  <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %>
+                 </li>
+                 <li class="waves-effect waves-light btn black">
+                   <%= link_to '削除', "/tweets/#{tweet.id}/destroy", method: :delete %>
+                 </li>
+               </ul>
+
+              <% end %>
             </div>
+
+
+
           </div>
-        </div>
+        </div> -->
         <% end %>
       </div>
       <%= paginate(@tweets) %>
     </div>
+
+
