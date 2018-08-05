@@ -1,0 +1,29 @@
+         <div class="card white darken-1 ">
+            <div class="card-content black-text ">
+　　　　　　　
+              <span class="card-title">●メモ</span>
+
+                <div class="content_post" >
+                  <%= simple_format(tweet.name) %>
+                  <span class="text"><%= tweet.text %></span>
+                </div>
+              </div>
+            <div class="card-action">
+              <ul>
+                <li class="waves-effect waves-light btn black">
+                <%= link_to '詳細', "/tweets/#{tweet.id}", method: :get %>
+                </li>
+
+                <% if user_signed_in? && current_user.id == tweet.user_id %>
+                 <li class="waves-effect waves-light btn black">
+                  <%= link_to '編集', "/tweets/#{tweet.id}/edit", method: :get %>
+                 </li>
+                 <li class="waves-effect waves-light btn black">
+                   <%= link_to '削除', "/tweets/#{tweet.id}/destroy", method: :delete %>
+                 </li>
+               </ul>
+
+              <% end %>
+            </div>
+          </div>
+        </div>
